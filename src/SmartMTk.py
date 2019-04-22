@@ -9,7 +9,7 @@ class SmartMTk:
         """
 
         # Init motors
-        self.motors = MotorDriver(23,24,18,22,27,17,25)
+        self.motors = MotorDriver(22,27,17,24,23,18,25)
 
     def forward(self):
         """Move forward the monster truck
