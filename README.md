@@ -28,7 +28,7 @@ A smart Monster Truck powered by Raspberry PI3 B+ - WIP project for a Wifi contr
 ### Raspberry Headless Setup
 * Download Rasbian Strech Lite [FROM THE OFFICIAL WEBSITE](https://www.raspberrypi.org/downloads/raspbian/)
 * Download Etcher [FROM OFFICIAL WEBSITE](https://www.balena.io/etcher/)
-* Flash rasbian image on MicroSd card
+* Flash raspbian image on MicroSd card
 * Enable SSH by placing a file named "ssh" (without any extension) onto the boot partition of the MicroSD card.
 * Enable WiFi connection by placing a file "wpa_supplicant.conf" onto the boot partition. A typical file is like this:
 ```
