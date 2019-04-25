@@ -1,0 +1,15 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	margin:0;
+	padding:0;
+}
+
+#logo{
+	font-family: 'Gugi', cursive;
+	font-size:24px;
+	color:#92E601;
+	background-color:#313131;
+	line-height:24px;
+	padding:8px;
+	margin:0;	
+}
