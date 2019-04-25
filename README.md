@@ -21,9 +21,18 @@ A smart Monster Truck powered by Raspberry PI3 B+ - WIP project for a Wifi contr
     ```python
     python3 SmartMTk/src/test.py
     ```
-    
-4. Run server
-    * ToDo . . .
+4. Install required packages
+   ```
+   pip3 install -r requirements.txt
+   ```
+5. Run server
+   ```
+   python3 src/webserver.py
+   ```
+6. With Chrome for Android / Windows visit this address and . . . enjoy!
+   ```
+   http://raspberryip:5000
+   ```
 
 ### Raspberry Headless Setup
 * Download Rasbian Strech Lite [FROM THE OFFICIAL WEBSITE](https://www.raspberrypi.org/downloads/raspbian/)
