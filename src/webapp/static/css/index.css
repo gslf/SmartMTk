@@ -4,6 +4,17 @@ body{
 	padding:0;
 }
 
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    	-webkit-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+input, button, textarea, :focus {
+	outline: none; // You should add some other style for :focus to help UX/a11y
+}
+
 #logo{
 	font-family: 'Gugi', cursive;
 	font-size:24px;
@@ -12,4 +23,18 @@ body{
 	line-height:24px;
 	padding:8px;
 	margin:0;	
+}
+
+.controls{
+	text-align:center
+}
+
+.control_button{
+	float:left;
+	height:40px;
+	line-height:40px;
+	width:120px;
+	margin:15px;
+	color:white;
+	background-color:#313131;
 }

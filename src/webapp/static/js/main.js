@@ -1,11 +1,11 @@
 /* Forward button managemant */
-$("#forward").mousedown(function(){
+$("#forward").on('mousedown touchstart',function(){
   $.ajax({
 	url: '/forward',
 	type: 'POST'  });
 });
 
-$("#forward").mouseup(function(){
+$("#forward").on('mouseup touchend', function(){
   $.ajax({
 	url: '/shortbrake',
 	type: 'POST'  });
@@ -13,13 +13,13 @@ $("#forward").mouseup(function(){
 
 
 /* Backward button managemant */
-$("#backward").mousedown(function(){
+$("#backward").on('mousedown touchstart', function(){
   $.ajax({
 	url: '/backward',
 	type: 'POST'  });
 });
 
-$("#backward").mouseup(function(){
+$("#backward").on('mouseup touchend', function(){
   $.ajax({
 	url: '/shortbrake',
 	type: 'POST'  });
@@ -27,14 +27,14 @@ $("#backward").mouseup(function(){
 
 
 /* Right steering button managemant */
-$("#right").mousedown(function(){
+$("#right").on('mousedown touchstart', function(){
     $.ajax({
 	url: '/right',
 	type: 'POST'  });
 
 });
 
-$("#right").mouseup(function(){
+$("#right").on('mouseup touchend', function(){
   $.ajax({
 	url: '/center',
 	type: 'POST'  });
@@ -42,13 +42,13 @@ $("#right").mouseup(function(){
 
 
 /* Left steering button managemant */
-$("#left").mousedown(function(){
+$("#left").on('mousedown touchstart', function(){
   $.ajax({
 	url: '/left',
 	type: 'POST'  });
 
 });
-$("#left").mouseup(function(){
+$("#left").on('mouseup touchend', function(){
   $.ajax({
 	url: '/center',
 	type: 'POST'  });
