@@ -25,7 +25,7 @@ def shorBrake():
 
 @app.route('/forward',methods = ['POST'])
 def forward():
-    smtk.forrward()
+    smtk.forward()
     return "Forward"
 
 @app.route('/backward',methods = ['POST'])
