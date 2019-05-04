@@ -1,55 +1,12 @@
-/* Forward button managemant */
-$("#forward").on('mousedown touchstart',function(){
-  $.ajax({
-	url: '/forward',
-	type: 'POST'  });
-});
-
-$("#forward").on('mouseup touchend', function(){
-  $.ajax({
-	url: '/shortbrake',
-	type: 'POST'  });
-});
+// ////////////////////////////
+// SmartMTk controls managemant
 
 
-/* Backward button managemant */
-$("#backward").on('mousedown touchstart', function(){
-  $.ajax({
-	url: '/backward',
-	type: 'POST'  });
-});
-
-$("#backward").on('mouseup touchend', function(){
-  $.ajax({
-	url: '/shortbrake',
-	type: 'POST'  });
-});
+// Create & bind joystick
+initJoystick();
+bindJoystick1();
+bindJoystick2();
 
 
-/* Right steering button managemant */
-$("#right").on('mousedown touchstart', function(){
-    $.ajax({
-	url: '/right',
-	type: 'POST'  });
-
-});
-
-$("#right").on('mouseup touchend', function(){
-  $.ajax({
-	url: '/center',
-	type: 'POST'  });
-});
-
-
-/* Left steering button managemant */
-$("#left").on('mousedown touchstart', function(){
-  $.ajax({
-	url: '/left',
-	type: 'POST'  });
-
-});
-$("#left").on('mouseup touchend', function(){
-  $.ajax({
-	url: '/center',
-	type: 'POST'  });
-});
+// Bind keyboard
+initKeyboard()

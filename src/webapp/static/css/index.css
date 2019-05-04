@@ -1,19 +1,14 @@
+/* ------------- */
+/* GENERAL STYLE */
 body{
 	font-family: 'Roboto', sans-serif;
 	margin:0;
 	padding:0;
 }
 
-:not(input):not(textarea),
-:not(input):not(textarea)::after,
-:not(input):not(textarea)::before {
-    	-webkit-user-select: none;
-	user-select: none;
-	cursor: default;
-}
-input, button, textarea, :focus {
-	outline: none; // You should add some other style for :focus to help UX/a11y
-}
+
+/* --------- */
+/* TITLE BAR */
 
 #logo{
 	font-family: 'Gugi', cursive;
@@ -25,16 +20,32 @@ input, button, textarea, :focus {
 	margin:0;	
 }
 
+
+/* ------------ */
+/* CONTROL AREA */
+
 .controls{
 	text-align:center
 }
 
-.control_button{
+.joystick_info{
+	text-align:center;
+	width:50%;
 	float:left;
-	height:40px;
-	line-height:40px;
-	width:120px;
-	margin:15px;
-	color:white;
-	background-color:#313131;
+}
+
+.joystick_area{
+	position:relative;
+	width:50%;
+	height:250px;
+	max-width:500px;
+	float:left;
+}
+
+#joystick_area1{
+	background-color:#f2f3f4;
+}
+
+#joystick_area2{
+	background-color:#d5d8dc;
 }
