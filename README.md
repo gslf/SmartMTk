@@ -58,3 +58,7 @@ network={
 ![SmartMTk wiring diagram](https://github.com/Promezio/SmartMTk/blob/master/SmartMTk_wiring.png)
 
 
+
+### Library references
+[NippleJS](https://github.com/yoannmoinet/nipplejs)
+
