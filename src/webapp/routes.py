@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template, Response
 from webapp import app
-
+from webapp.Camera import Camera
 from SmartMTk import SmartMTk
 
 
@@ -13,6 +13,19 @@ smtk = SmartMTk()
 @app.route('/index')
 def index():
     return render_template('index.html')
+
+############################################
+# Video Stream
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen(Camera()),mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 
 ############################################
