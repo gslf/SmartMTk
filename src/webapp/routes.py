@@ -3,6 +3,8 @@ from webapp import app
 from webapp.Camera import Camera
 from SmartMTk import SmartMTk
 
+import time
+
 
 # SmartMTk object init
 smtk = SmartMTk()
@@ -16,15 +18,20 @@ def index():
 
 ############################################
 # Video Stream
-def gen(camera):
+def gen():
+    
+    # Create a camera object
+    camera = Camera()
+    time.sleep(2)
+    
+    # Yeld camera frames
     while True:
-        frame = camera.get_frame()
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+               b'Content-Type: image/jpeg\r\n\r\n' + camera.frame + b'\r\n')
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen(Camera()),mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 

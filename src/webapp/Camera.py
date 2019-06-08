@@ -1,38 +1,40 @@
-import cv2
-import pygame
 from time import time
+import picamera
+import io
+import threading
 
 class Camera(object):
-    '''An object for manage USB camera'''
+    '''An object for manage picamera'''
 
     def __init__(self):
         self.frame = None
-        self.camera = cv2.VideoCapture(0)
 
-        if not self.camera.isOpened():
-            raise RuntimeError('Could not start camera.')
+        # Retrieve frames in a background thread
+        thread = threading.Thread(target=self.retrieveFrame, args=())
+        thread.daemon = True
+        thread.start()
 
 
-    def get_frame(self):
-        '''Get frame from USB camera
-        
-        Return:
-            frame - Encoded image (.jpg)
+    def retrieveFrame(self):
+        '''Retrieve frame from picamera
         '''
-
-        try:
-            _, img = self.camera.read()
-            self.frame = cv2.imencode('.jpg', img)[1].tobytes()
-
-        except Exception as e:
-            self.camera.release()
-            self.camera = cv2.VideoCapture(0)
-            print(e)
         
-        return self.frame
+        # Get PiCamera object
+        with picamera.PiCamera() as camera:
+            # Set camera resolution
+            camera.resolution = (320, 240)
 
+            # Loop for frame retrieving
+            while True:
+                stream = io.BytesIO()
+                for foo in camera.capture_continuous(stream, 'jpeg', use_video_port=True):
+                    # return current frame
+                    stream.seek(0)
+                    self.frame =  stream.read() 
+                     
+                    # reset stream for next frame
+                    stream.seek(0)
+                    stream.truncate()
 
-    def __del__(self):
-        self.camera.release()
 
 
