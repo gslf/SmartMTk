@@ -53,6 +53,10 @@ network={
 ```
 * Turn on the Raspberry
 * Use your favourite SSH client (Terminal, PowerShell, PUTTY, ...)  to access the Pi. 
+* Setup gpu_mem=256 in /boot/config.txt
+```
+sudo nano /boot/config.txt
+```
 
 ### Wiring diagram
 ![SmartMTk wiring diagram](https://github.com/Promezio/SmartMTk/blob/master/SmartMTk_wiring.png)
@@ -61,5 +65,6 @@ network={
 
 ### References
 [Flask](https://github.com/pallets/flask/)
+
 [NippleJS](https://github.com/yoannmoinet/nipplejs)
 
