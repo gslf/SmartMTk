@@ -1,6 +1,7 @@
 from flask import render_template, Response
 from webapp import app
 from webapp.Camera import Camera
+from webapp.ComputerVision import ComputerVision
 from SmartMTk import SmartMTk
 
 import time
@@ -8,6 +9,8 @@ import time
 
 # SmartMTk object init
 smtk = SmartMTk()
+cv = ComputerVision()
+
 
 ############################################
 # Control page
@@ -18,20 +21,9 @@ def index():
 
 ############################################
 # Video Stream
-def gen():
-    
-    # Create a camera object
-    camera = Camera()
-    time.sleep(2)
-    
-    # Yeld camera frames
-    while True:
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + camera.frame + b'\r\n')
-
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(cv.frameGen(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 
@@ -68,6 +60,13 @@ def left():
     smtk.turnLeft()
     return "Forward"
 
+
+#############################################
+# Settings endpoint
+@app.route('/motiondetection', methods=['POST'])
+def motiondetection_switch():
+    cv.motion_detection = not cv.motion_detection 
+    return ('', 204)
 
 
 

@@ -13,9 +13,18 @@
 		<div id="logo">:#/ <b>Smart</b>MTk</div>
 	</nav>
 
-	<div class="stream">
-		<img src="{{ url_for('video_feed') }}">
+	<div class="screen">
+		<div class="stream">
+			<img src="{{ url_for('video_feed') }}">
+		</div>
+		<div class="status">
+			<b>STATUS: </b><span class="green_text">RUN</span><br />
+			<b>ALARM: </b><span id="alarm_text" class="green_text">NO ALARMS</span>  <button id="alarm_defuse" disabled>DEFUSE</button><br />
+			<b>MOTION DETECTION: </b><span id="motion_detection_text" class="red_text">INACTIVE</span> <button id="motion_detection" data-status="off">START</button>
+		</div>
+		<div style="clear:both"></div>
 	</div>
+
 
 	<div class="controls">
 		<div class="joystick_info">Forward - Backward</div>

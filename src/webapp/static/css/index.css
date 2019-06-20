@@ -6,6 +6,13 @@ body{
 	padding:0;
 }
 
+.green_text{
+	color:green;
+}
+
+.red_text{
+	color:red;
+}
 
 /* --------- */
 /* TITLE BAR */
@@ -20,12 +27,37 @@ body{
 	margin:0;	
 }
 
+/* ********************* */
+/* VIDEO AND STATUS AREA */
+.screen{
+	width:100%;
+	text-align:center;
+	margin:20px auto;
+	max-width: 730px;	
+}
+
+.stream{
+	float:left;
+	width: 320px;
+}
+
+.status{
+	float: left;
+	width:390px;
+	padding-left:20px;
+	text-align:left;
+}
+
+
 
 /* ------------ */
 /* CONTROL AREA */
 
 .controls{
-	text-align:center
+	width:100%;
+	text-align:center;
+	margin:0 auto;
+	max-width: 730px;	
 }
 
 .joystick_info{
