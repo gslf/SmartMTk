@@ -129,8 +129,5 @@ obj/Debug
 *.pyproj.user
 *.sln
 
-#REPORT FOLDER
-#/reports/**
-
-#TESTS FOLDER
-webapp/tests
+#VARS
+src/vars.py
