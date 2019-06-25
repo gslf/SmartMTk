@@ -44,8 +44,8 @@ class ComputerVision(object):
             delta = cv2.absdiff(frame1, frame2)
             tresh = cv2.threshold (delta, 25, 255, cv2.THRESH_BINARY)[1]
             tresh = cv2.dilate(tresh, None, iterations=2)
-            areass = cv2.findContours(tresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-            areas = imutils.grab_contours(cnts)
+            areas = cv2.findContours(tresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            areas = imutils.grab_contours(areas)
 
             # Loop on all detected areas
             for area in areas:

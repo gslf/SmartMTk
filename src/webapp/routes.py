@@ -1,4 +1,4 @@
-from flask import render_template, Response
+from flask import render_template, Response, jsonify
 from webapp import app
 from webapp.Camera import Camera
 from webapp.ComputerVision import ComputerVision
@@ -63,10 +63,22 @@ def left():
 
 #############################################
 # Settings endpoint
+@app.route('/status', methods=['GET'])
+def status():
+    s = {'alarm':cv.alarm.status} 
+    return jsonify(s)
+
+
 @app.route('/motiondetection', methods=['POST'])
 def motiondetection_switch():
     cv.motion_detection = not cv.motion_detection 
     return ('', 204)
+
+@app.route('/defusealarm', methods=['POST'])
+def defusealarm():
+    cv.alarm.defuse() 
+    return ('', 204)
+
 
 
 
