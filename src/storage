@@ -1,0 +1,1 @@
+{"admin": {"alarm_mail_server": "mailserver", "alarm_mail_port": 465, "pwd": "admin", "alarm_mail_from_pwd": "mailpwd", "alarm_mail": "info@promezio.it", "alarm_mail_from": "info@promezio.it"}} 

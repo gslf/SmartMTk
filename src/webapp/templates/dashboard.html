@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>:#/ SmartMTk</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Gugi|Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	      rel="stylesheet">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+ 
+    </head>
+    <body>
+	<nav>
+		<span id="logo">:#/ <b>Smart</b>MTk</span>
+		<span id="settings">
+			<a href="settings"><i class="material-icons">settings</i></a>
+		</span>
+		<span id="logout"><a href="logout"><i class="material-icons">exit_to_app</i></a></span>
+	</nav>
+
+	<div class="screen">
+		<div class="stream">
+			<img src="{{ url_for('video_feed') }}">
+		</div>
+		<div class="status">
+			<b>STATUS: </b><span class="green_text">RUN</span><br />
+			<b>ALARM: </b><span id="alarm_text" class="green_text">NO ALARMS</span>  <button id="alarm_defuse" disabled>DEFUSE</button><br />
+			<b>MOTION DETECTION: </b><span id="motion_detection_text" class="red_text">INACTIVE</span> <button id="motion_detection" data-status="off">START</button>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+
+	<div class="controls">
+		<div class="joystick_info">Forward - Backward</div>
+		<div class="joystick_info">Left - Right</div>
+		<div style="clear:both"></div>
+
+		<div class="joystick_area" id="joystick_area1"></div>
+		<div class="joystick_area" id="joystick_area2"></div>	
+		<div style="clear:both"></div>
+		
+		<center>
+		You can also control SmartMTk with <b>WSAD</b> keys.
+		</center>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/nipplejs@0.8.1/dist/nipplejs.min.js"></script>
+	<script type=text/javascript src="{{ url_for('static', filename='js/smartmtk_utils.js') }}"></script>
+	<script type=text/javascript src="{{ url_for('static', filename='js/joystick_utils.js') }}"></script>
+	<script type=text/javascript src="{{ url_for('static', filename='js/keyboard_utils.js') }}"></script>
+	<script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    </body>
+</html>

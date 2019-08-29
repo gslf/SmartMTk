@@ -24,6 +24,10 @@ function mainLoop(){
 			$('#alarm_text').html('ALARM');
 			$('#alarm_text').addClass('red_text').removeClass('green_text');
 			$('#alarm_defuse').prop('disabled', false);
+		}else{
+			$('#alarm_text').html('NO ALARM');
+			$('#alarm_text').addClass('green_text').removeClass('red_text');
+			$('#alarm_defuse').prop('disabled', true);
 		}
 	});
 

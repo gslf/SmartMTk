@@ -14,7 +14,6 @@ class Camera(object):
         thread.daemon = True
         thread.start()
 
-
     def retrieveFrame(self):
         '''Retrieve frame from picamera
         '''

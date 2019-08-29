@@ -1,7 +1,10 @@
-from flask import render_template, Response, jsonify
+from flask import render_template, Response, jsonify, request, redirect,url_for
+from flask_login import login_required, login_user, logout_user, current_user
+
 from webapp import app
 from webapp.Camera import Camera
 from webapp.ComputerVision import ComputerVision
+from webapp.User import User
 from SmartMTk import SmartMTk
 
 import time
@@ -18,6 +21,47 @@ cv = ComputerVision()
 @app.route('/index')
 def index():
     return render_template('index.html')
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
+
+@app.route('/settings')
+@login_required
+def settings():
+    return render_template('settings.html')
+
+
+
+
+############################################
+# Login management
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
+                
+    username = request.form['username']
+    password = request.form['password']
+
+    user = User(username)
+    user.load()
+                   
+    if username is None or password is None or not user.check_password(password):
+        return redirect(url_for('index'))
+    
+    login_user(user, remember=True)
+    return redirect(url_for('dashboard'))
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('dashboard'))
+
+
+
 
 ############################################
 # Video Stream
@@ -72,6 +116,9 @@ def status():
 @app.route('/motiondetection', methods=['POST'])
 def motiondetection_switch():
     cv.motion_detection = not cv.motion_detection 
+    
+    if not cv.motion_detection:
+        cv.alarm.defuse()
     return ('', 204)
 
 @app.route('/defusealarm', methods=['POST'])

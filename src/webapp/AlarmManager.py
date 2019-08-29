@@ -25,7 +25,6 @@ class AlarmManager(object):
         '''
         self.status = False
 
-        
     def trigger(self, image):
         '''This funcion trigger an alarm
         '''

@@ -1,0 +1,54 @@
+/* ********************* */
+/* VIDEO AND STATUS AREA */
+.screen{
+	width:100%;
+	text-align:center;
+	margin:20px auto;
+	max-width: 730px;	
+}
+
+.stream{
+	float:left;
+	width: 320px;
+}
+
+.status{
+	float: left;
+	width:390px;
+	padding-left:20px;
+	text-align:left;
+}
+
+
+
+/* ------------ */
+/* CONTROL AREA */
+
+.controls{
+	width:100%;
+	text-align:center;
+	margin:0 auto;
+	max-width: 730px;	
+}
+
+.joystick_info{
+	text-align:center;
+	width:50%;
+	float:left;
+}
+
+.joystick_area{
+	position:relative;
+	width:50%;
+	height:250px;
+	max-width:500px;
+	float:left;
+}
+
+#joystick_area1{
+	background-color:#f2f3f4;
+}
+
+#joystick_area2{
+	background-color:#d5d8dc;
+}
